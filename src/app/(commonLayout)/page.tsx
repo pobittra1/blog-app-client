@@ -3,9 +3,14 @@ import { cookies } from "next/headers";
 
 export default async function Home() {
   const cookieStore = await cookies();
-  console.log(cookieStore.get("better-auth.session_token"));
-  const res = await fetch("http://localhost:4000/api/auth/get-session");
-  console.log(res.json());
+  console.log(cookieStore.toString());
+  const res = await fetch("http://localhost:3000/api/auth/get-session", {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+  const session = await res.json();
+  console.log(session);
   return (
     <div>
       <Button variant={"outline"}>Click Here</Button>
