@@ -1,6 +1,7 @@
 import { env } from "../../env";
 
 const API_URL = env.API_URL;
+
 //* No Dynamic and No { cache: no-store } : SSG -> Static Page
 //* { cache: no-store } : SSR -> Dynamic Page
 //* next: { revalidate: 10 } : ISR -> Mix between static and dynamic
@@ -44,7 +45,6 @@ export const blogService = {
       return { data: data, error: null };
     } catch (err) {
       return { data: null, error: { message: "Something went wrong!" } };
-      console.log(err);
     }
   },
 };
