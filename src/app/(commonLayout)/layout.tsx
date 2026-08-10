@@ -8,7 +8,6 @@ export default function CommonLayout({
   return (
     <div>
       <Navbar></Navbar>
-      <h1>CommonLayout Page</h1>
       {children}
     </div>
   );
