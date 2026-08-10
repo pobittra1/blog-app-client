@@ -37,6 +37,10 @@ export const blogService = {
       }
       const res = await fetch(url.toString(), config);
       const data = await res.json();
+      //    this is an example
+      // if(data.success){
+      //     return
+      // }
       return { data: data, error: null };
     } catch (err) {
       return { data: null, error: { message: "Something went wrong!" } };
