@@ -4,9 +4,11 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Field, FieldGroup } from "@/components/ui/field";
 import { useForm } from "@tanstack/react-form";
 
 export function RegisterForm({ ...props }: React.ComponentProps<typeof Card>) {
@@ -30,14 +32,22 @@ export function RegisterForm({ ...props }: React.ComponentProps<typeof Card>) {
       </CardHeader>
       <CardContent>
         <form
+          id="login-form"
           onSubmit={(e) => {
             e.preventDefault();
             form.handleSubmit();
           }}
         >
-          <Button type="submit">Submit</Button>
+          <FieldGroup>
+            <form.Field name="name" children={() => <Field></Field>} />
+          </FieldGroup>
         </form>
       </CardContent>
+      <CardFooter className="flex justify-end">
+        <Button form="login-form" type="submit">
+          Submit
+        </Button>
+      </CardFooter>
     </Card>
   );
 }
