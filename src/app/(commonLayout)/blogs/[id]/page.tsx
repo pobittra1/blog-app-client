@@ -1,6 +1,14 @@
 import { blogService } from "@/services/blog.service";
+import { BlogPost } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const { data } = await blogService.getBlogPost();
+  return data?.data?.map((blog: BlogPost) => ({ id: blog.id })).splice(0, 3);
+}
 
 export default async function BlogPage({
   params,
