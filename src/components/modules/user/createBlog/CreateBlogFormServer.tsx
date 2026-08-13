@@ -9,10 +9,37 @@ import {
 } from "@/components/ui/card";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { env } from "../../../../../env";
+import { cookies } from "next/headers";
 
+const API_URL = env.API_URL;
 export default function CreateBlogFormServer() {
   const createBlog = async (formData: FormData) => {
     "use server";
+    const title = formData.get("title" as string);
+    const content = formData.get("content") as string;
+    const tags = formData.get("tags") as string;
+
+    const blogData = {
+      title,
+      content,
+      tags: tags
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => item !== ""),
+    };
+
+    const cookiesStore = await cookies();
+
+    const res = await fetch(`${API_URL}/posts`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Cookie: cookiesStore.toString(),
+      },
+      body: JSON.stringify(blogData),
+    });
   };
   return (
     <Card className="max-w-2xl mx-auto">
@@ -24,16 +51,26 @@ export default function CreateBlogFormServer() {
         <form id="blog-form" action={createBlog}>
           <FieldGroup>
             <Field>
-              <FieldLabel>Title</FieldLabel>
-              <Input type="text" name="title"></Input>
+              <FieldLabel htmlFor="title">Title</FieldLabel>
+              <Input
+                id="title"
+                name="title"
+                placeholder="Blog Title"
+                required
+              ></Input>
             </Field>
             <Field>
-              <FieldLabel>Content</FieldLabel>
-              <Input type="text" name="title"></Input>
+              <FieldLabel htmlFor="content">Content</FieldLabel>
+              <Textarea
+                id="content"
+                name="content"
+                placeholder="Write Your blog"
+                required
+              ></Textarea>
             </Field>
             <Field>
-              <FieldLabel>Tags</FieldLabel>
-              <Input type="text" name="title"></Input>
+              <FieldLabel htmlFor="tags">Tags (comma separated)</FieldLabel>
+              <Input id="tags" name="tags" placeholder="nextjs, web"></Input>
             </Field>
           </FieldGroup>
         </form>
