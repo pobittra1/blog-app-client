@@ -7,8 +7,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
 
 export default function CreateBlogFormServer() {
+  const createBlog = async (formData: FormData) => {
+    "use server";
+  };
   return (
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
@@ -16,7 +21,22 @@ export default function CreateBlogFormServer() {
         <CardDescription>You can write your blog here</CardDescription>
       </CardHeader>
       <CardContent>
-        <form id="blog-form"></form>
+        <form id="blog-form" action={createBlog}>
+          <FieldGroup>
+            <Field>
+              <FieldLabel>Title</FieldLabel>
+              <Input type="text" name="title"></Input>
+            </Field>
+            <Field>
+              <FieldLabel>Content</FieldLabel>
+              <Input type="text" name="title"></Input>
+            </Field>
+            <Field>
+              <FieldLabel>Tags</FieldLabel>
+              <Input type="text" name="title"></Input>
+            </Field>
+          </FieldGroup>
+        </form>
       </CardContent>
       <CardFooter>
         <Button form="blog-form" type="submit" className="w-full">
