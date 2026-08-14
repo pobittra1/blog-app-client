@@ -1,3 +1,5 @@
+import { useForm } from "@tanstack/react-form";
+import { toast } from "sonner";
 import { z } from "zod";
 const blogSchema = z.object({
   title: z
@@ -12,6 +14,38 @@ const blogSchema = z.object({
 });
 
 export function CreateBlogFromCLient() {
+  const form = useForm({
+    defaultValues: {
+      title: "",
+      content: "",
+      tags: "",
+    },
+    validators: {
+      onSubmit: blogSchema,
+    },
+    onSubmit: async ({ value }) => {
+      const toastId = toast.loading("Creating....");
+
+      const blogData = {
+        ...value,
+        tags: value.tags
+          .split(",")
+          .map((item) => item.trim())
+          .filter((item) => item !== ""),
+      };
+
+      console.log(blogData);
+
+      try {
+        // post logic
+
+        toast.success("Post Created", { id: toastId });
+      } catch (err) {
+        toast.error("Something Went Wrong", { id: toastId });
+      }
+    },
+  });
+
   return (
     <div>
       <h1>CreateBlogFromCLient</h1>
