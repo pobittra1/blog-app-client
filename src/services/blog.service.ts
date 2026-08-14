@@ -17,7 +17,7 @@ interface ServiceOptions {
   revalidate?: number;
 }
 
-interface BlogData {
+export interface BlogData {
   title: string;
   content: string;
   tag?: string[];
@@ -71,7 +71,7 @@ export const blogService = {
     }
   },
 
-  createBlog: async (blogData: BlogData) => {
+  createBlogPost: async (blogData: BlogData) => {
     try {
       const cookieStore = await cookies();
       const res = await fetch(`${API_URL}/posts`, {
