@@ -58,7 +58,7 @@ export function CreateBlogFromCLient() {
 
         toast.success("Post Created", { id: toastId });
       } catch (err) {
-        toast.error("Something Went Wrong", { id: toastId });
+        toast.error("Something Went", { id: toastId });
       }
     },
   });
