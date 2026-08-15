@@ -81,7 +81,7 @@ export default function CreateBlogFormServer() {
         </form>
       </CardContent>
       <CardFooter>
-        <Button form="blog-form" type="submit" className="w-full">
+        <Button form="blog-form" type="" className="w-full">
           Submit
         </Button>
       </CardFooter>
