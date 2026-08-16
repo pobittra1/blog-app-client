@@ -49,7 +49,7 @@ export default function CreateBlogFormServer() {
   return (
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle>Create BLog</CardTitle>
+        <CardTitle>Create BLog here</CardTitle>
         <CardDescription>You can write your blog here</CardDescription>
       </CardHeader>
       <CardContent>
