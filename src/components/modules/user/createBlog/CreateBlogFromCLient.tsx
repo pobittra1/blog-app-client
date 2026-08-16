@@ -68,7 +68,7 @@ export function CreateBlogFromCLient() {
       <CardHeader>
         <CardTitle>Create an account</CardTitle>
         <CardDescription>
-          Enter your information below to create your account
+          Enter your Information below to create your account
         </CardDescription>
       </CardHeader>
       <CardContent>
