@@ -63,7 +63,7 @@ export function RegisterForm({ ...props }: React.ComponentProps<typeof Card>) {
       <CardHeader>
         <CardTitle>Create an account</CardTitle>
         <CardDescription>
-          Enter your information below to create your account here
+          Enter your information below to create your account
         </CardDescription>
       </CardHeader>
       <CardContent>
