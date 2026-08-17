@@ -1,3 +1,4 @@
+import { createBlogPost } from "@/actions/blog.action";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -55,6 +56,8 @@ export function CreateBlogFromCLient() {
 
       try {
         // post logic
+        const res = await createBlogPost(blogData);
+        console.log(res);
 
         toast.success("Post Created", { id: toastId });
       } catch (err) {
