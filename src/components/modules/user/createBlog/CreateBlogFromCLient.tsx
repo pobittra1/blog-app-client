@@ -54,8 +54,6 @@ export function CreateBlogFromCLient() {
           .filter((item) => item !== ""),
       };
 
-      console.log(blogData);
-
       try {
         // post logic
         const res = await createBlogPost(blogData);
