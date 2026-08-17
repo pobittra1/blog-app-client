@@ -19,6 +19,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "@tanstack/react-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { id } from "zod/locales";
 const blogSchema = z.object({
   title: z
     .string()
@@ -45,7 +46,8 @@ export function CreateBlogFromCLient() {
       const toastId = toast.loading("Creating....");
 
       const blogData = {
-        ...value,
+        title: value.title,
+        content: value.content,
         tags: value.tags
           .split(",")
           .map((item) => item.trim())
@@ -57,7 +59,10 @@ export function CreateBlogFromCLient() {
       try {
         // post logic
         const res = await createBlogPost(blogData);
-        console.log(res);
+        if (res.error) {
+          toast.error(res.error?.message, { id: toastId });
+          return;
+        }
 
         toast.success("Post Created", { id: toastId });
       } catch (err) {

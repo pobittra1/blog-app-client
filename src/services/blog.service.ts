@@ -88,7 +88,7 @@ export const blogService = {
       if (data.error) {
         return {
           data: null,
-          error: { message: data.error || "Error: Post not created." },
+          error: { message: "Error: Post not created." },
         };
       }
       return { data: data, error: null };
