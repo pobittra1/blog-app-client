@@ -5,7 +5,7 @@ export default function contactLayout({
 }) {
   return (
     <div>
-      <h1>This is contact layout here</h1>
+      <h1>This is contact layout</h1>
       {children}
     </div>
   );
