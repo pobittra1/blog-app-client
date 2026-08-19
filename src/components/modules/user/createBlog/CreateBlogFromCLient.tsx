@@ -1,3 +1,5 @@
+"use client";
+
 import { createBlogPost } from "@/actions/blog.action";
 import { Button } from "@/components/ui/button";
 import {
