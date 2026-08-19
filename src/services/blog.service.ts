@@ -10,6 +10,7 @@ const API_URL = env.API_URL;
 interface GetBlogsPramas {
   isFeatured?: boolean;
   search?: string;
+  page?: string;
 }
 
 interface ServiceOptions {
