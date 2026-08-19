@@ -7,8 +7,7 @@ export default async function HisotoryPage({
   searchParams: Promise<{ page: string }>;
 }) {
   const { page } = await searchParams;
-  console.log(page);
-  const response = await blogService.getBlogPost({ page: "2" });
+  const response = await blogService.getBlogPost({ page });
 
   const posts = response.data?.data || [];
 
