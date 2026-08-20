@@ -11,6 +11,7 @@ interface GetBlogsPramas {
   isFeatured?: boolean;
   search?: string;
   page?: string;
+  limit?: string;
 }
 
 interface ServiceOptions {
