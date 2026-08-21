@@ -30,7 +30,7 @@ export default async function Home() {
 
   // await Promise.all([promise1, promise2]);
 
-  console.timeEnd("Parallel");
+  // console.timeEnd("Parallel");
   return (
     <div className="max-w-7xl mx-auto px-4">
       <div className="mb-12 mt-8 h-[calc(100vh-80px)] flex flex-col justify-center">
