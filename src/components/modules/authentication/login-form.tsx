@@ -24,7 +24,7 @@ const formSchema = z.object({
   email: z.email(),
   password: z.string().min(8, "Minimum lenth is 8"),
 });
-console.log(formSchema);
+
 export function LoginForm({ ...props }: React.ComponentProps<typeof Card>) {
   const handleGoogleLogin = async () => {
     const data = authClient.signIn.social({
