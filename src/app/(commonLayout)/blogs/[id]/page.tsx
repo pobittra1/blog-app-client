@@ -24,7 +24,6 @@ export default async function BlogPage({
     month: "long",
     day: "numeric",
   });
-  console.log(formattedDate);
 
   // Estimate reading time (average 200 words per minute)
   const wordCount = blog.content.trim().split(/\s+/).length;
