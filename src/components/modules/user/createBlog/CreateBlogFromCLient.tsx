@@ -45,7 +45,7 @@ export function CreateBlogFromCLient() {
       onSubmit: blogSchema,
     },
     onSubmit: async ({ value }) => {
-      const toastId = toast.loading("Creating....");
+      const toastId = toast.loading("Creating Blog.......");
 
       const blogData = {
         title: value.title,
